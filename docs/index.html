@@ -1,147 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    <meta charset="utf-8">
-    <title>Home - Telegraf Session local Documentation</title>
-    
-    <meta name="description" content="Documentation for Telegraf Session local" />
-    
-        <meta name="keywords" content="Telegram Telegraf Session Local Database JSON XML" />
-        <meta name="keyword" content="Telegram Telegraf Session Local Database JSON XML" />
-    
-    
-    
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
-    <script src="scripts/nav.js" defer></script>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>Home - Regraf Session local Documentation</title>
+  <meta name="description" content="Documentation for Regraf Session local"/>
+  <meta name="keywords" content="Telegram Regraf Session Local Database JSON XML"/>
+  <meta name="keyword" content="Telegram Regraf Session Local Database JSON XML"/>
+  <script src="scripts/prettify/prettify.js"></script>
+  <script src="scripts/prettify/lang-css.js"></script>
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+  <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+  <script src="scripts/nav.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
-
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<body><input type="checkbox" id="nav-trigger" class="nav-trigger"/>
 <label for="nav-trigger" class="navicon-button x">
   <div class="navicon"></div>
-</label>
-
-<label for="nav-trigger" class="overlay"></label>
-
-<nav >
-    
-    <input type="text" id="nav-search" placeholder="Search" />
-    
-    
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/RealSpeaker/telegraf-session-local" target="_blank" class="menu-item" id="link_repo" >GitHub Repository ⧉</a></h2><h2><a href="https://www.npmjs.com/package/telegraf-session-local" target="_blank" class="menu-item" id="link_npm" >NPM Package ⧉</a></h2><h3>Modules</h3><ul><li><a href="module-telegraf-session-local.html">telegraf-session-local</a></li></ul><h3>Classes</h3><ul><li><a href="LocalSession.html">LocalSession</a><ul class='methods'><li data-type='method'><a href="LocalSession.html#getSession">getSession</a></li><li data-type='method'><a href="LocalSession.html#getSessionKey">getSessionKey</a></li><li data-type='method'><a href="LocalSession.html#middleware">middleware</a></li><li data-type='method'><a href="LocalSession.html#saveSession">saveSession</a></li></ul></li></ul>
-    
+</label><label for="nav-trigger" class="overlay"></label>
+<nav><input type="text" id="nav-search" placeholder="Search"/>
+  <h2><a href="index.html">Home</a></h2>
+  <h2><a href="https://github.com/regraf-bots/session-local" target="_blank" class="menu-item" id="link_repo">GitHub
+    Repository ⧉</a></h2>
+  <h2><a href="https://www.npmjs.com/package/@regraf/session-local" target="_blank" class="menu-item" id="link_npm">NPM
+    Package ⧉</a></h2>
+  <h3>Modules</h3>
+  <ul>
+    <li><a href="module-regraf-session-local.html">@regraf/session-local</a></li>
+  </ul>
+  <h3>Classes</h3>
+  <ul>
+    <li><a href="LocalSession.html">LocalSession</a>
+      <ul class='methods'>
+        <li data-type='method'><a href="LocalSession.html#getSession">getSession</a></li>
+        <li data-type='method'><a href="LocalSession.html#getSessionKey">getSessionKey</a></li>
+        <li data-type='method'><a href="LocalSession.html#middleware">middleware</a></li>
+        <li data-type='method'><a href="LocalSession.html#saveSession">saveSession</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
-
 <div id="main">
-    
-
-    
-
-
-
-    
-
-
-    <section class="package">
-        <h3> </h3>		
-    </section>
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    <section class="readme usertext">
-        <article><h1><a href="https://github.com/telegraf/telegraf">Telegraf</a> Session local</h1>
-<p><a href="https://www.npmjs.com/package/telegraf-session-local"><img src="https://img.shields.io/npm/v/telegraf-session-local.svg?style=flat-square" alt="NPM Version"></a><br>
-<a href="https://www.npmjs.com/package/telegraf-session-local"><img src="https://img.shields.io/node/v/telegraf-session-local.svg?style=flat-square" alt="Nodejs"></a><br>
-<a href="https://npmcharts.com/compare/telegraf-session-local,telegraf-session-redis,telegraf-session-dynamodb,telegraf-postgres-session,telegraf-session-mysql,telegraf-session-mongoose,telegraf-session-mongo,telegraf-session-rethinkdb?interval=30"><img src="https://img.shields.io/npm/dm/telegraf-session-local.svg?style=flat-square" alt="NPM downloads/month"></a><br>
-<a href="https://github.com/RealSpeaker/telegraf-session-local/actions"><img src="https://img.shields.io/github/actions/workflow/status/RealSpeaker/telegraf-session-local/ci.yml?style=flat-square" alt="GitHub Actions Status"></a><br>
-<a href="https://coveralls.io/github/RealSpeaker/telegraf-session-local?branch=master"><img src="https://img.shields.io/coveralls/github/RealSpeaker/telegraf-session-local/master.svg?style=flat-square" alt="Coveralls"></a><br>
-<img src="https://img.shields.io/codacy/grade/761ed505ba2d44bd9a2bc598e68969e3?style=flat-square" alt="Codacy grade"><br>
-<img src="https://img.shields.io/github/last-commit/RealSpeaker/telegraf-session-local?style=flat-square" alt="GitHub last commit"></p>
-<blockquote>
-<p>Middleware for locally stored sessions &amp; database</p>
-</blockquote>
-<h3>⚡️ Features</h3>
-<ul>
-<li>
-<p>Any type of storage: <code>Memory</code>, <code>FileSync</code>, <code>FileAsync</code>, ... (implement your own)</p>
-</li>
-<li>
-<p>Any format you want: <code>JSON</code>, <code>BSON</code>, <code>YAML</code>, <code>XML</code>, ... (implement your own)</p>
-</li>
-<li>
-<p>Shipped together with power of <code>lodash</code></p>
-</li>
-<li>
-<p>Supports basic DB-like operations (thanks to <a href="https://github.com/typicode/lodash-id">lodash-id</a>):</p>
-<p><code>getById</code>, <code>insert</code>, <code>upsert</code>, <code>updateById</code>, <code>updateWhere</code>, <code>replaceById</code>, <code>removeById</code>, <code>removeWhere</code>, <code>createId</code>,</p>
-</li>
-</ul>
-<h2>🚀 Installation</h2>
-<pre class="prettyprint source lang-js"><code>$ npm install -S telegraf-session-local
+  <section class="package">
+    <h3></h3>
+  </section>
+  <section class="readme usertext">
+    <article><h1><a href="https://github.com/regraf-bots/regraf">Regraf</a> Session local</h1>
+      <p><a href="https://www.npmjs.com/package/@regraf/session-local"><img
+        src="https://img.shields.io/npm/v/@regraf/session-local.svg?style=flat-square" alt="NPM Version"></a><br>
+        <a href="https://www.npmjs.com/package/@regraf/session-local"><img
+          src="https://img.shields.io/node/v/@regraf/session-local.svg?style=flat-square" alt="Nodejs"></a><br>
+        <a
+          href="https://img.shields.io/npm/dm/@regraf/session-local.svg?style=flat-square"><img
+          src="https://img.shields.io/npm/dm/@regraf/session-local.svg?style=flat-square"
+          alt="NPM downloads/month"></a><br>
+        <a href="https://coveralls.io/github/regraf-bots/session-local?branch=master"><img
+          src="https://img.shields.io/coveralls/github/regraf-bots/session-local/master.svg?style=flat-square"
+          alt="Coveralls"></a><br>
+        <img src="https://img.shields.io/github/last-commit/regraf-bots/session-local?style=flat-square"
+             alt="GitHub last commit"></p>
+      <blockquote>
+        <p>Middleware for locally stored sessions &amp; database</p>
+      </blockquote>
+      <h3>⚡️ Features</h3>
+      <ul>
+        <li>
+          <p>Any type of storage: <code>Memory</code>, <code>FileSync</code>, <code>FileAsync</code>, ... (implement
+            your own)</p>
+        </li>
+        <li>
+          <p>Any format you want: <code>JSON</code>, <code>BSON</code>, <code>YAML</code>, <code>XML</code>, ...
+            (implement your own)</p>
+        </li>
+        <li>
+          <p>Shipped together with power of <code>lodash</code></p>
+        </li>
+        <li>
+          <p>Supports basic DB-like operations (thanks to <a href="https://github.com/typicode/lodash-id">lodash-id</a>):
+          </p>
+          <p><code>getById</code>, <code>insert</code>, <code>upsert</code>, <code>updateById</code>,
+            <code>updateWhere</code>, <code>replaceById</code>, <code>removeById</code>, <code>removeWhere</code>,
+            <code>createId</code>,</p>
+        </li>
+      </ul>
+      <h2>🚀 Installation</h2>
+      <pre class="prettyprint source lang-js"><code>$ npm install -S @regraf/session-local
 </code></pre>
-<blockquote>
-<p>💡 TIP: We recommend <a href="https://pnpm.io/?from=https://github.com/RealSpeaker/telegraf-session-local/"><code>pnpm</code> package manager</a>: <code>npm i -g pnpm</code> and then <code>pnpm i -S telegraf-session-local</code>.<br>
-It's in-place replacement for <code>npm</code>, <a href="https://pnpm.io/benchmarks">faster and better</a> than <code>npm</code>/<code>yarn</code>, and <a href="https://pnpm.io/motivation#saving-disk-space-and-boosting-installation-speed">saves your disk space</a>.</p>
-</blockquote>
-<hr>
-<h3>📚 <a href="http://realspeaker.github.io/telegraf-session-local/">Documentation &amp; API</a></h3>
-<hr>
-<h2>👀 Quick-start example</h2>
-<pre class="prettyprint source lang-js"><code>const { Telegraf } = require('telegraf')
-const LocalSession = require('telegraf-session-local')
-
-const bot = new Telegraf(process.env.BOT_TOKEN) // Your Bot token here
-
-bot.use((new LocalSession({ database: 'example_db.json' })).middleware())
-
-bot.on('text', (ctx, next) => {
+      <blockquote>
+        <p>💡 TIP: We recommend <a
+          href="https://pnpm.io/?from=https://github.com/regraf-bots/session-local"><code>pnpm</code> package
+          manager</a>: <code>npm i -g pnpm</code> and then <code>pnpm i -S @regraf/session-local</code>.<br>
+          It's in-place replacement for <code>npm</code>, <a href="https://pnpm.io/benchmarks">faster and better</a>
+          than <code>npm</code>/<code>yarn</code>, and <a
+            href="https://pnpm.io/motivation#saving-disk-space-and-boosting-installation-speed">saves your disk
+            space</a>.</p>
+      </blockquote>
+      <hr>
+      <h3>📚 <a href="https://github.com/regraf-bots/session-local/docs">Documentation &amp; API</a></h3>
+      <hr>
+      <h2>👀 Quick-start example</h2>
+      <pre class="prettyprint source lang-js"><code>const { Regraf } = require('regraf')
+const LocalSession = require('@regraf/session-local')
+  const bot = new Regraf(process.env.BOT_TOKEN) // Your Bot token herebot.use((new LocalSession({ database: 'example_db.json' })).middleware())bot.on('text', (ctx, next) => {
   ctx.session.counter = ctx.session.counter || 0
   ctx.session.counter++
   ctx.replyWithMarkdownV2(`Counter updated, new value: \`${ctx.session.counter}\``)
   return next()
 })
-
 bot.command('/stats', (ctx) => {
   ctx.replyWithMarkdownV2(`Database has \`${ctx.session.counter}\` messages from @${ctx.from.username || ctx.from.id}`)
 })
-
 bot.command('/remove', (ctx) => {
   ctx.replyWithMarkdownV2(`Removing session from database: \`${JSON.stringify(ctx.session)}\``)
   // Setting session to null, undefined or empty object/array will trigger removing it from database
   ctx.session = null
-})
-
-bot.launch()
+})bot.launch()
 </code></pre>
-<h2>📄 Full example</h2>
-<pre class="prettyprint source lang-js"><code>const { Telegraf } = require('telegraf')
-const LocalSession = require('telegraf-session-local')
-
-const bot = new Telegraf(process.env.BOT_TOKEN) // Your Bot token here
-
-const localSession = new LocalSession({
+      <h2>📄 Full example</h2>
+      <pre class="prettyprint source lang-js"><code>const { Regraf } = require('regraf')
+const LocalSession = require('@regraf/session-local')
+  const bot = new Regraf(process.env.BOT_TOKEN) // Your Bot token hereconst localSession = new LocalSession({
   // Database name/path, where sessions will be located (default: 'sessions.json')
   database: 'example_db.json',
-  // Name of session property object in Telegraf Context (default: 'session')
+  // Name of session property object in Regraf Context (default: 'session')
   property: 'session',
   // Type of lowdb storage (default: 'storageFileSync')
   storage: LocalSession.storageFileAsync,
@@ -150,71 +133,47 @@ const localSession = new LocalSession({
     serialize: (obj) => JSON.stringify(obj, null, 2), // null & 2 for pretty-formatted JSON
     deserialize: (str) => JSON.parse(str),
   },
-  // We will use `messages` array in our database to store user messages using exported lowdb instance from LocalSession via Telegraf Context
+  // We will use `messages` array in our database to store user messages using exported lowdb instance from LocalSession via Regraf Context
   state: { messages: [] }
-})
-
-// Wait for database async initialization finished (storageFileAsync or your own asynchronous storage adapter)
+})// Wait for database async initialization finished (storageFileAsync or your own asynchronous storage adapter)
 localSession.DB.then(DB => {
   // Database now initialized, so now you can retrieve anything you want from it
   console.log('Current LocalSession DB:', DB.value())
   // console.log(DB.get('sessions').getById('1:1').value())
-})
-
-// Telegraf will use `telegraf-session-local` configured above middleware
-bot.use(localSession.middleware())
-
-bot.on('text', (ctx, next) => {
+})// Regraf will use `@regraf/session-local` configured above middleware
+bot.use(localSession.middleware())bot.on('text', (ctx, next) => {
   ctx.session.counter = ctx.session.counter || 0
   ctx.session.counter++
   ctx.replyWithMarkdownV2(`Counter updated, new value: \`${ctx.session.counter}\``)
   // Writing message to Array `messages` into database which already has sessions Array
   ctx.sessionDB.get('messages').push([ctx.message]).write()
-  // `property`+'DB' is a name of ctx property which contains lowdb instance, default = `sessionDB`
-
-  return next()
+  // `property`+'DB' is a name of ctx property which contains lowdb instance, default = `sessionDB`  return next()
 })
-
 bot.command('/stats', (ctx) => {
   ctx.replyWithMarkdownV2(`Session has \`${ctx.session.counter}\` messages from @${ctx.from.username || ctx.from.id}`)
 })
-
 bot.command('/remove', (ctx) => {
   ctx.replyWithMarkdownV2(`Removing session from lowdb database: \`${JSON.stringify(ctx.session)}\``)
   // Setting session to null, undefined or empty object/array will trigger removing it from database
   ctx.session = null
 })
-
 bot.launch()
 </code></pre>
-<h4>Another examples located in <code>/examples</code> folder (PRs welcome)</h4>
-<p>Also, you may read comments in  <a href="https://github.com/RealSpeaker/telegraf-session-local/blob/master/lib/session.js">/lib/session.js</a></p>
-<h1></h1>
-<p>Tema Smirnov and contributors / <a href="mailto:github.tema@smirnov.one">github.tema@smirnov.one</a> / <a href="https://goo.gl/YeV4gk"><img src="https://img.shields.io/badge/%F0%9F%92%AC%20Telegram-%40TemaSM-blue.svg" alt="Telegram"></a></p></article>
-    </section>
-
-
-
-
-
-
-    
-    
+      <h4>Another examples located in <code>/examples</code> folder (PRs welcome)</h4>
+      <p>Also, you may read comments in <a
+        href="https://github.com/regraf-bots/session-local/blob/master/lib/session.js">/lib/session.js</a></p>
+      <h1></h1>
+      <p>Tema Smirnov, Ilya Petrov and contributors / <a href="mailto:github.tema@smirnov.one">github.tema@smirnov.one</a> / <a href="mailto:me@redguy.ru">me@redguy.ru</a></p></article>
+  </section>
 </div>
-
 <br class="clear">
-
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.0</a> using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+  Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.0</a> using the <a
+  href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
-
 <script>prettyPrint();</script>
 <script src="scripts/polyfill.js"></script>
 <script src="scripts/linenumber.js"></script>
-
 <script src="scripts/search.js" defer></script>
-
-
-
 </body>
 </html>

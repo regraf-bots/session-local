@@ -1,31 +1,31 @@
 /* eslint object-curly-spacing: ["error", "always"] */
 const
-  { Telegraf } = require('telegraf'),
+  { Regraf } = require('Regraf'),
   LocalSession = require('../lib/session'),
   should = require('should'),
-  debug = require('debug')('telegraf:session-local:test'),
+  debug = require('debug')('regraf:session-local:test'),
   options = { storage: LocalSession.storageMemory }
 
-describe('Telegraf Session local : General', () => {
+describe('Regraf Session local : General', () => {
   let bot = {}
   const localSession = new LocalSession(options)
 
   it('Should works without specifying any options for LocalSession', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     const session = new LocalSession()
     bot.on('text', session.middleware(), (ctx) => {
       should.exist(ctx.session)
       done()
     })
-    // Temporary using setTimeout() because `telegraf-local-session` doesn't handle async adapters correctly yet
+    // Temporary using setTimeout() because `@regraf/local-session` doesn't handle async adapters correctly yet
     setTimeout(() => {
       bot.handleUpdate({ message: { chat: { id: 1 }, from: { id: 1 }, text: 'hey' } })
     }, 25)
   })
 
   it('Should use custom `format.serialize` and `format.deserialize` functions', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     const session = new LocalSession({
       database: 'test_sync_db.json',
@@ -50,7 +50,7 @@ describe('Telegraf Session local : General', () => {
   })
 
   it('Should have access to lowdb instance via ctx.sessionDB', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     bot.on('text', localSession.middleware(), (ctx) => {
       debug('lowdb instance via `ctx.sessionDB` %o', ctx.sessionDB)
@@ -61,7 +61,7 @@ describe('Telegraf Session local : General', () => {
   })
 
   it('Should override default `session` property to `data` at middleware() call', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     bot.on('text', localSession.middleware('data'), (ctx) => {
       debug('Overrided session property %o', ctx.data)
@@ -72,7 +72,7 @@ describe('Telegraf Session local : General', () => {
   })
 
   it('Should have access to lowdb instance via overrided property in ctx', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     bot.on('text', localSession.middleware('data'), (ctx) => {
       debug('lowdb instance via `ctx.dataDB` %o', ctx.dataDB)
@@ -83,10 +83,10 @@ describe('Telegraf Session local : General', () => {
   })
 
   it('Should return `undefined` when context has no `from` field', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     bot.on('text', localSession.middleware(), (ctx) => {
-      debug('Telegraf context `from` field: %o', ctx.from)
+      debug('Regraf context `from` field: %o', ctx.from)
       should.not.exists(localSession.getSessionKey(ctx))
       done()
     })
@@ -94,7 +94,7 @@ describe('Telegraf Session local : General', () => {
   })
 
   it('Should return `undefined` when no key provided for session to be saved', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     bot.on('text', localSession.middleware(), async (ctx) => {
       const sessionKey = localSession.getSessionKey(ctx)

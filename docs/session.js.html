@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+
     <meta charset="utf-8">
-    <title>session.js - Telegraf Session local Documentation</title>
-    
-    <meta name="description" content="Documentation for Telegraf Session local" />
-    
-        <meta name="keywords" content="Telegram Telegraf Session Local Database JSON XML" />
-        <meta name="keyword" content="Telegram Telegraf Session Local Database JSON XML" />
-    
-    
-    
+    <title>session.js - Regraf Session local Documentation</title>
+
+    <meta name="description" content="Documentation for Regraf Session local" />
+
+        <meta name="keywords" content="Telegram Regraf Session Local Database JSON XML" />
+        <meta name="keyword" content="Telegram Regraf Session Local Database JSON XML" />
+
+
+
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
     <!--[if lt IE 9]>
@@ -20,7 +20,7 @@
     <link type="text/css" rel="stylesheet" href="styles/prettify.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
     <script src="scripts/nav.js" defer></script>
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -33,24 +33,24 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav >
-    
+
     <input type="text" id="nav-search" placeholder="Search" />
-    
-    
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/RealSpeaker/telegraf-session-local" target="_blank" class="menu-item" id="link_repo" >GitHub Repository ⧉</a></h2><h2><a href="https://www.npmjs.com/package/telegraf-session-local" target="_blank" class="menu-item" id="link_npm" >NPM Package ⧉</a></h2><h3>Modules</h3><ul><li><a href="module-telegraf-session-local.html">telegraf-session-local</a></li></ul><h3>Classes</h3><ul><li><a href="LocalSession.html">LocalSession</a><ul class='methods'><li data-type='method'><a href="LocalSession.html#getSession">getSession</a></li><li data-type='method'><a href="LocalSession.html#getSessionKey">getSessionKey</a></li><li data-type='method'><a href="LocalSession.html#middleware">middleware</a></li><li data-type='method'><a href="LocalSession.html#saveSession">saveSession</a></li></ul></li></ul>
-    
+
+
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/regraf-bots/session-local" target="_blank" class="menu-item" id="link_repo" >GitHub Repository ⧉</a></h2><h2><a href="https://www.npmjs.com/package/@regraf/session-local" target="_blank" class="menu-item" id="link_npm" >NPM Package ⧉</a></h2><h3>Modules</h3><ul><li><a href="module-regraf-session-local.html">regraf-session-local</a></li></ul><h3>Classes</h3><ul><li><a href="LocalSession.html">LocalSession</a><ul class='methods'><li data-type='method'><a href="LocalSession.html#getSession">getSession</a></li><li data-type='method'><a href="LocalSession.html#getSessionKey">getSessionKey</a></li><li data-type='method'><a href="LocalSession.html#middleware">middleware</a></li><li data-type='method'><a href="LocalSession.html#saveSession">saveSession</a></li></ul></li></ul>
+
 </nav>
 
 <div id="main">
-    
+
     <h1 class="page-title">session.js</h1>
-    
-
-    
 
 
 
-    
+
+
+
+
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>const Debug = require('debug')
@@ -61,16 +61,16 @@ const storageMemory = require('lowdb/adapters/Memory')
 
 const lodashId = require('./lodash-id.js')
 
-const debug = Debug('telegraf:session-local')
+const debug = Debug('regraf:session-local')
 
 /**
  * Represents a wrapper around locally stored session, it's {@link LocalSession#middleware|middleware} &amp; lowdb
  *
  * @param {Object} [options] - Options for {@link LocalSession|LocalSession} &amp; {@link https://github.com/typicode/lowdb|lowdb}
  * @param {String} [options.database] - Name or path to database file `default:` `'sessions.json'`
- * @param {String} [options.property] - Name of property in {@link https://telegraf.js.org/#/?id=context|Telegraf Context} where session object will be located `default:` `'session'`
+ * @param {String} [options.property] - Name of property in Regraf Context where session object will be located `default:` `'session'`
  * @param {Object} [options.state] - Initial state of database. You can use it to pre-init database Arrays/Objects to store your own data `default:` `{}`
- * @param {Function} [options.getSessionKey] - Function to get identifier for session from {@link https://telegraf.js.org/#/?id=context|Telegraf Context} (may implement it on your own)
+ * @param {Function} [options.getSessionKey] - Function to get identifier for session from Regraf Context (may implement it on your own)
  * @param {Object} [options.storage] - lowdb storage option for implementing your own storage read/write operations `default:` {@link LocalSession.storageFileSync|LocalSession.storageFileSync}
  * @param {Function} [options.storage.read] - lowdb storage read function, must return an object or a Promise
  * @param {Function} [options.storage.write] - lowdb storage write function, must return undefined or a Promise
@@ -144,9 +144,9 @@ class LocalSession {
   }
 
   /**
-   * Get session key from {@link https://telegraf.js.org/#/?id=context|Telegraf Context}
+   * Get session key from Regraf Context
    *
-   * @param {Object} ctx - {@link https://telegraf.js.org/#/?id=context|Telegraf Context}
+   * @param {Object} ctx - Regraf Context
    * @returns {String} Session key in format `number:number` (chat.id:from.id)
    */
   getSessionKey (ctx) {
@@ -202,9 +202,9 @@ class LocalSession {
   }
 
   /**
-   * Session middleware for use in Telegraf
+   * Session middleware for use in Regraf
    *
-   * @param {String} [property] - Name of property in {@link https://telegraf.js.org/#/?id=context|Telegraf Context} where session object will be located (overrides `property` at {@link LocalSession} constructor)
+   * @param {String} [property] - Name of property in Regraf Context where session object will be located (overrides `property` at {@link LocalSession} constructor)
    * @returns {Promise}
    */
   middleware (property = this.options.property) {
@@ -215,12 +215,12 @@ class LocalSession {
       debug('Session key: %s', key)
       let session = that.getSession(key)
       debug('Session data: %o', session)
-      // Assigning session object to the Telegraf Context using `property` as a variable name
+      // Assigning session object to the Regraf Context using `property` as a variable name
       Object.defineProperty(ctx, property, {
         get: function () { return session },
         set: function (newValue) { session = Object.assign({}, newValue) }
       })
-      // Make lowdb available in the Telegraf Context
+      // Make lowdb available in the Regraf Context
       Object.defineProperty(ctx, `${property}DB`, {
         get: function () { return that.DB },
         set: function () { }
@@ -332,13 +332,14 @@ function isPromise (obj) {
 }
 
 /**
- * @overview {@link http://telegraf.js.org/|Telegraf} Session middleware for storing sessions locally (Memory/FileSync/FileAsync/...)
- * @module telegraf-session-local
+ * @overview Regraf Session middleware for storing sessions locally (Memory/FileSync/FileAsync/...)
+ * @module @regraf/session-local
  * @license MIT
  * @author Tema Smirnov &lt;git.tema@smirnov.one>
- * @requires {@link https://www.npmjs.com/package/telegraf|npm: telegraf}
+ * @author Ilya Petrov &lt;me@redguy.ru>
+ * @requires {@link https://www.npmjs.com/package/regraf|npm: regraf}
  * @requires {@link https://www.npmjs.com/package/lowdb|npm: lowdb}
- * @see {@link http://telegraf.js.org/|Telegraf} | {@link https://github.com/typicode/lowdb|lowdb}
+ * @see {@link https://github.com/regraf-bots/regraf|Regraf} | {@link https://github.com/typicode/lowdb|lowdb}
  * @exports LocalSession
  */
 module.exports = LocalSession
@@ -350,8 +351,8 @@ module.exports.isPromise = isPromise
 
 
 
-    
-    
+
+
 </div>
 
 <br class="clear">

@@ -1,17 +1,17 @@
 /* eslint object-curly-spacing: ["error", "always"] */
 const
-  { Telegraf } = require('telegraf'),
+  { Regraf } = require('regraf'),
   LocalSession = require('../lib/session'),
   should = require('should'),
-  debug = require('debug')('telegraf:session-local:test'),
+  debug = require('debug')('regraf:session-local:test'),
   options = { storage: LocalSession.storageMemory }
 
-describe('Telegraf Session local : Session Key Update Types', () => {
+describe('Regraf Session local : Session Key Update Types', () => {
   let bot = {}
   const localSession = new LocalSession(options)
 
   it('Should handle message', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     bot.on('text', (ctx) => {
       const sessionKey = localSession.getSessionKey(ctx)
@@ -23,7 +23,7 @@ describe('Telegraf Session local : Session Key Update Types', () => {
   })
 
   it('Should handle inline_query', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     bot.on('inline_query', (ctx) => {
       const sessionKey = localSession.getSessionKey(ctx)
@@ -36,7 +36,7 @@ describe('Telegraf Session local : Session Key Update Types', () => {
   })
 
   it('Should handle callback_query from chat', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     bot.action('c:b', (ctx) => {
       const sessionKey = localSession.getSessionKey(ctx)
@@ -49,7 +49,7 @@ describe('Telegraf Session local : Session Key Update Types', () => {
   })
 
   it('Should handle callback_query from inline_query message', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     bot.action('c:b', (ctx) => {
       const sessionKey = localSession.getSessionKey(ctx)

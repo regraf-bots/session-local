@@ -1,5 +1,5 @@
 {
-  "title": "telegraf-session-local - Documentation",
+  "title": "@regraf/session-local - Documentation",
   "tags": {
     "allowUnknownTags": true
   },
@@ -48,19 +48,19 @@
     "collapse": false,
     "typedefs": true,
     "meta": {
-      "title": "Telegraf Session local Documentation",
-      "keyword": "Telegram Telegraf Session Local Database JSON XML",
-      "description": "Documentation for Telegraf Session local"
+      "title": "Regraf Session local Documentation",
+      "keyword": "Telegram Regraf Session Local Database JSON XML",
+      "description": "Documentation for Regraf Session local"
     },
     "menu": {
       "GitHub Repository ⧉": {
-        "href": "https://github.com/RealSpeaker/telegraf-session-local",
+        "href": "https://github.com/regraf-bots/session-local",
         "target": "_blank",
         "class": "menu-item",
         "id": "link_repo"
       },
       "NPM Package ⧉": {
-        "href": "https://www.npmjs.com/package/telegraf-session-local",
+        "href": "https://www.npmjs.com/package/@regraf/session-local",
         "target": "_blank",
         "class": "menu-item",
         "id": "link_npm"

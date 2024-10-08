@@ -1,9 +1,9 @@
 /* eslint object-curly-spacing: ["error", "always"] */
 const
-  { Telegraf } = require('telegraf'),
+  { Regraf } = require('regraf'),
   LocalSession = require('../lib/session'),
   should = require('should'),
-  debug = require('debug')('telegraf:session-local:test')
+  debug = require('debug')('regraf:session-local:test')
 
 // Custom adapter, it's like storageMemory
 // We even no need to extend storageBase, it's just for example purposes here
@@ -20,7 +20,7 @@ class storageCustom extends LocalSession.storageBase {
 
 const options = { storage: storageCustom }
 
-describe('Telegraf Session local : storageCustom', () => {
+describe('Regraf Session local : storageCustom', () => {
   let bot = {}
   const localSession = new LocalSession(options)
 
@@ -37,7 +37,7 @@ describe('Telegraf Session local : storageCustom', () => {
   })
 
   it('storageCustom: Should has session', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     bot.on('text', localSession.middleware(), (ctx) => {
       debug('Middleware session %O', ctx.session)
@@ -50,7 +50,7 @@ describe('Telegraf Session local : storageCustom', () => {
   })
 
   it('storageCustom: Should handle existing session', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     bot.on('text', localSession.middleware(), (ctx) => {
       debug('Existing Middleware session %O', ctx.session)
@@ -63,7 +63,7 @@ describe('Telegraf Session local : storageCustom', () => {
   })
 
   it('storageCustom: Should handle not existing session', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     bot.on('text', localSession.middleware(), (ctx) => {
       debug('Not Existing Middleware session %O', ctx.session)
@@ -75,7 +75,7 @@ describe('Telegraf Session local : storageCustom', () => {
   })
 
   it('storageCustom: Should handle session reset', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     bot.on('text', localSession.middleware(), (ctx) => {
       debug('Middleware session reset - before %O', ctx.session)

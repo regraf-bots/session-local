@@ -1,15 +1,15 @@
 /* eslint object-curly-spacing: ["error", "always"] */
 const
-  { Telegraf } = require('telegraf'),
+  { Regraf } = require('regraf'),
   LocalSession = require('../lib/session'),
   should = require('should'),
-  debug = require('debug')('telegraf:session-local:test'),
+  debug = require('debug')('regraf:session-local:test'),
   options = { database: 'test_sync_db.json', storage: LocalSession.storageFileSync }
 
 let bot = {}
 const localSession = new LocalSession(options)
 
-describe('Telegraf Session local : storageFileSync', () => {
+describe('Regraf Session local : storageFileSync', () => {
 
   it('storageFileSync: Should retrieve and save session', (done) => {
     const key = '1:1' // ChatID:FromID
@@ -26,7 +26,7 @@ describe('Telegraf Session local : storageFileSync', () => {
   })
 
   it('storageFileSync: Should has session', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     bot.on('text', localSession.middleware(), (ctx) => {
       debug('Middleware session %O', ctx.session)
@@ -39,7 +39,7 @@ describe('Telegraf Session local : storageFileSync', () => {
   })
 
   it('storageFileSync: Should handle existing session', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     bot.on('text', localSession.middleware(), (ctx) => {
       debug('Existing Middleware session %O', ctx.session)
@@ -52,7 +52,7 @@ describe('Telegraf Session local : storageFileSync', () => {
   })
 
   it('storageFileSync: Should handle not existing session', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     bot.on('text', localSession.middleware(), (ctx) => {
       debug('Not Existing Middleware session %O', ctx.session)
@@ -64,7 +64,7 @@ describe('Telegraf Session local : storageFileSync', () => {
   })
 
   it('storageFileSync: Should handle session reset', (done) => {
-    bot = new Telegraf()
+    bot = new Regraf()
     bot.botInfo = {}
     bot.on('text', localSession.middleware(), (ctx) => {
       debug('Middleware session reset - before %O', ctx.session)

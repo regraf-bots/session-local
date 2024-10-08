@@ -1,6 +1,6 @@
-declare module 'telegraf-session-local' {
+declare module '@regraf/session-local' {
   import { AdapterSync, AdapterAsync, BaseAdapter } from 'lowdb'
-  import { Context } from 'telegraf'
+  import { Context } from 'regraf'
 
   type MiddlewareFn<C extends Context> = (ctx: C, next: () => Promise<void>) => Promise<void>
 

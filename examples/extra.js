@@ -1,12 +1,12 @@
-const { Telegraf } = require('telegraf')
-const LocalSession = require('../lib/session') // require('telegraf-session-local')
+const { Regraf } = require('regraf')
+const LocalSession = require('../lib/session') // require('@regraf/session-local')
 
-const bot = new Telegraf(process.env.BOT_TOKEN) // Your Bot token here
+const bot = new Regraf(process.env.BOT_TOKEN) // Your Bot token here
 
 const localSession = new LocalSession({
   // Database name/path, where sessions will be located (default: 'sessions.json')
   database: 'example_db.json',
-  // Name of session property object in Telegraf Context (default: 'session')
+  // Name of session property object in Regraf Context (default: 'session')
   property: 'session',
   // Type of lowdb storage (default: 'storageFileSync')
   storage: LocalSession.storageFileAsync,
@@ -15,7 +15,7 @@ const localSession = new LocalSession({
     serialize: (obj) => JSON.stringify(obj, null, 2), // null & 2 for pretty-formatted JSON
     deserialize: (str) => JSON.parse(str),
   },
-  // We will use `messages` array in our database to store user messages using exported lowdb instance from LocalSession via Telegraf Context
+  // We will use `messages` array in our database to store user messages using exported lowdb instance from LocalSession via Regraf Context
   state: { messages: [] }
 })
 
@@ -26,7 +26,7 @@ localSession.DB.then(DB => {
   // console.log(DB.get('sessions').getById('1:1').value())
 })
 
-// Telegraf will use `telegraf-session-local` configured above middleware
+// Regraf will use `@regraf/session-local` configured above middleware
 bot.use(localSession.middleware())
 
 bot.on('text', (ctx, next) => {

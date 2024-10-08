@@ -1,12 +1,8 @@
-# [Telegraf](https://github.com/telegraf/telegraf) Session local
+# [Regraf](https://github.com/regraf-bots/regraf) Session local
 
-[![NPM Version](https://img.shields.io/npm/v/telegraf-session-local.svg?style=flat-square)](https://www.npmjs.com/package/telegraf-session-local)
-[![Nodejs](https://img.shields.io/node/v/telegraf-session-local.svg?style=flat-square)](https://www.npmjs.com/package/telegraf-session-local)
-[![NPM downloads/month](https://img.shields.io/npm/dm/telegraf-session-local.svg?style=flat-square)](https://npmcharts.com/compare/telegraf-session-local,telegraf-session-redis,telegraf-session-dynamodb,telegraf-postgres-session,telegraf-session-mysql,telegraf-session-mongoose,telegraf-session-mongo,telegraf-session-rethinkdb?interval=30)
-[![GitHub Actions Status](https://img.shields.io/github/actions/workflow/status/RealSpeaker/telegraf-session-local/ci.yml?style=flat-square)](https://github.com/RealSpeaker/telegraf-session-local/actions)
-[![Coveralls](https://img.shields.io/coveralls/github/RealSpeaker/telegraf-session-local/master.svg?style=flat-square)](https://coveralls.io/github/RealSpeaker/telegraf-session-local?branch=master)
-![Codacy grade](https://img.shields.io/codacy/grade/761ed505ba2d44bd9a2bc598e68969e3?style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/RealSpeaker/telegraf-session-local?style=flat-square)
+[![NPM Version](https://img.shields.io/npm/v/@regraf/session-local.svg?style=flat-square)](https://www.npmjs.com/package/@regraf/session-local)
+[![Nodejs](https://img.shields.io/node/v/@regraf/session-local.svg?style=flat-square)](https://www.npmjs.com/package/@regraf/session-local)
+[![NPM downloads/month](https://img.shields.io/npm/dm/@regraf/session-local.svg?style=flat-square)](https://www.npmjs.com/package/@regraf/session-local)
 
 > Middleware for locally stored sessions & database
 
@@ -21,22 +17,22 @@
 
 ## 🚀 Installation
 
-```js
-$ npm install -S telegraf-session-local
+```bash
+$ npm install -S @regraf/session-local
 ```
 
-> 💡 TIP: We recommend [`pnpm` package manager](https://pnpm.io/?from=https://github.com/RealSpeaker/telegraf-session-local/): `npm i -g pnpm` and then `pnpm i -S telegraf-session-local`.  
+> 💡 TIP: We recommend [`pnpm` package manager](https://pnpm.io/): `npm i -g pnpm` and then `pnpm i -S @regraf/session-local`.  
 > It's in-place replacement for `npm`, [faster and better](https://pnpm.io/benchmarks) than `npm`/`yarn`, and [saves your disk space](https://pnpm.io/motivation#saving-disk-space-and-boosting-installation-speed).
 ---
-### 📚 [Documentation & API](http://realspeaker.github.io/telegraf-session-local/)
+### 📚 [Documentation & API](https://github.com/regraf-bots/session-local)
 ---
 ## 👀 Quick-start example
 
 ```js
-const { Telegraf } = require('telegraf')
-const LocalSession = require('telegraf-session-local')
+const { Regraf } = require('regraf')
+const LocalSession = require('@regraf/session-local')
 
-const bot = new Telegraf(process.env.BOT_TOKEN) // Your Bot token here
+const bot = new Regraf(process.env.BOT_TOKEN) // Your Bot token here
 
 bot.use((new LocalSession({ database: 'example_db.json' })).middleware())
 
@@ -63,15 +59,15 @@ bot.launch()
 ## 📄 Full example
 
 ```js
-const { Telegraf } = require('telegraf')
-const LocalSession = require('telegraf-session-local')
+const { Regraf } = require('regraf')
+const LocalSession = require('@regraf/session-local')
 
-const bot = new Telegraf(process.env.BOT_TOKEN) // Your Bot token here
+const bot = new Regraf(process.env.BOT_TOKEN) // Your Bot token here
 
 const localSession = new LocalSession({
   // Database name/path, where sessions will be located (default: 'sessions.json')
   database: 'example_db.json',
-  // Name of session property object in Telegraf Context (default: 'session')
+  // Name of session property object in Regraf Context (default: 'session')
   property: 'session',
   // Type of lowdb storage (default: 'storageFileSync')
   storage: LocalSession.storageFileAsync,
@@ -80,7 +76,7 @@ const localSession = new LocalSession({
     serialize: (obj) => JSON.stringify(obj, null, 2), // null & 2 for pretty-formatted JSON
     deserialize: (str) => JSON.parse(str),
   },
-  // We will use `messages` array in our database to store user messages using exported lowdb instance from LocalSession via Telegraf Context
+  // We will use `messages` array in our database to store user messages using exported lowdb instance from LocalSession via Regraf Context
   state: { messages: [] }
 })
 
@@ -91,7 +87,7 @@ localSession.DB.then(DB => {
   // console.log(DB.get('sessions').getById('1:1').value())
 })
 
-// Telegraf will use `telegraf-session-local` configured above middleware
+// Regraf will use `@regraf/session-local` configured above middleware
 bot.use(localSession.middleware())
 
 bot.on('text', (ctx, next) => {
@@ -119,8 +115,4 @@ bot.launch()
 ```
 
 #### Another examples located in `/examples` folder (PRs welcome)
-Also, you may read comments in  [/lib/session.js](https://github.com/RealSpeaker/telegraf-session-local/blob/master/lib/session.js)
-
-#
-
-Tema Smirnov and contributors / <github.tema@smirnov.one> / [![Telegram](https://img.shields.io/badge/%F0%9F%92%AC%20Telegram-%40TemaSM-blue.svg)](https://goo.gl/YeV4gk)
+Also, you may read comments in  [/lib/session.js](https://github.com/regraf-bots/session-local/blob/master/lib/session.js)

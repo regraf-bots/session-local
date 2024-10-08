@@ -8,7 +8,7 @@
     "program": "${workspaceRoot}/examples/simple.js",
     "env": {
       "BOT_TOKEN": "<YOUR_BOT_TOKEN>",
-      "DEBUG": "telegraf:session-local:*"
+      "DEBUG": "regraf:session-local:*"
     },
     "console": "integratedTerminal"
   },
@@ -23,7 +23,7 @@
     ],
     "console": "integratedTerminal",
     "env": {
-      "DEBUG": "telegraf:session-local:test"
+      "DEBUG": "regraf:session-local:test"
     },
     "port": 9229
   }]

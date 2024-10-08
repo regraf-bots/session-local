@@ -1,7 +1,7 @@
-const { Telegraf } = require('telegraf')
-const LocalSession = require('../lib/session') // require('telegraf-session-local')
+const { Regraf } = require('regraf')
+const LocalSession = require('../lib/session') // require('@regraf/session-local')
 
-const bot = new Telegraf(process.env.BOT_TOKEN) // Your Bot token here
+const bot = new Regraf(process.env.BOT_TOKEN) // Your Bot token here
 
 bot.use((new LocalSession({ database: 'example_db.json' })).middleware())
 
