@@ -53,7 +53,7 @@
     "regraf": "^1.0.0"
   },
   "devDependencies": {
-    "docdash": "^2.0.1",
+    "docdash": "^2.0.2",
     "eslint": "^8.32.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.27.5",
