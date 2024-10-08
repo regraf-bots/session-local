@@ -50,7 +50,7 @@
   },
   "peerDependencies": {
     "debug": "^2.0.0 || ^3.0.0 || ^4.0.0",
-    "regraf": "^1.0.0"
+    "regraf": "^1.1.6"
   },
   "devDependencies": {
     "docdash": "^2.0.1",
@@ -65,7 +65,7 @@
     "np": "*",
     "nyc": "^15.1.0",
     "should": "^13.2.3",
-    "regraf": "^1.0.0"
+    "regraf": "^1.1.6"
   },
   "np": {
     "yarn": false
